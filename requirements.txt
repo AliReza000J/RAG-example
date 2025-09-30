@@ -1,0 +1,14 @@
+langchain-cli
+python-dotenv
+langchain
+langchain-core
+langchain-community
+langchain-groq
+langchain-experimental
+langchain-huggingface
+unstructured[all-docs]
+tqdm
+tiktoken
+pgvector
+psycopg2
+sentence-transformers

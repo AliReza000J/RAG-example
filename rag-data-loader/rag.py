@@ -21,8 +21,8 @@ loader = DirectoryLoader(
 docs = loader.load()
 
 embeddings = HuggingFaceEmbeddings(
-    model_name="Alibaba-NLP/gte-base-en-v1.5",
-    model_kwargs={"trust_remote_code": True}
+    model_name="sentence-transformers/all-MiniLM-L6-v2",
+    encode_kwargs={"batch_size": 8, "normalize_embeddings": True}
 )
 
 text_splitter = SemanticChunker(

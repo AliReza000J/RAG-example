@@ -18,7 +18,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+pdf_directory = "./pdf-docs"
+os.makedirs(pdf_directory, exist_ok=True)
 app.mount("/rag/static", StaticFiles(directory="./pdf-docs"), name="static")
+
 @app.get("/")
 async def redirect_root_to_docs():
     return RedirectResponse("/docs")
@@ -45,7 +48,6 @@ async def load_and_process_pdfs():
     except subprocess.CalledProcessError as e:
         return {"error": "Failed to execute script"}
 
-# Edit this to add the chain you want to add
 add_routes(app, final_chain, path="/rag")
 
 # if __name__ == "__main__":
